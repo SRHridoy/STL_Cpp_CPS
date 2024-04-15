@@ -288,6 +288,18 @@ Example :
 
     cout << count << endl;
 ```
+### এভাবে ইউজ করব
+```cpp
+    vector<int>v = {1,2,2,3,3,4,5,6,6,7,8,8,9};
+    int cntUnique = unique(v.begin(),v.end())-v.begin();
+    cout << "No. of unique elements is " << cntUnique << endl;
+    for(int i = 0; i < cntUnique; i++){
+        cout << v[i] << " ";
+    }cout << endl;
+
+    //Output : No. of unique elements is 9
+                //1 2 3 4 5 6 7 8 9
+```
 
 
 ### max_element and min_element:
@@ -305,6 +317,8 @@ Example :
      //Gives the minimum element:
     cout << *min_element(v.begin(), v.end()) << endl;//1
 ```
+
+
 
 
 
