@@ -681,6 +681,210 @@ CBA
 No of Permutaion is 6*/
 ```
 
+## Pair : 
+
+```cpp
+    pair<int,int>pii;
+    pii.first = 12;
+    pii.second = 21;
+    cout << pii.first << " " << pii.second << endl;
+
+    pair<string,vector<int>>psv;
+
+    psv.first = "Hridoy ";
+    psv.second = {0,0,7};
+
+    cout << psv.first;
+    for(auto u:psv.second) cout << u ;
+    cout << endl;
+
+    /*
+    12 21
+    Hridoy007
+    */
+
+
+   //Initializing:
+   pair<int,int>p;
+   p = make_pair(2,3);
+   p = {5,5};
+   p.first++;
+   cout << p.first << " " << p.second << endl;//6 5
+```
+
+### Comparing pair and find maximum and minimum pair : 
+```cpp
+    pair<int,int> p1,p2;
+
+    p1 = {3,5};
+    p2 = {1,6};
+
+    if(p1<p2) cout << "YES\n";
+    else cout << "NO\n";
+
+    //Findig minimum pair:
+    pair<int,int> p = min(p1,p2);
+    cout << p.first << " " << p.second << endl;
+```
+
+### Sorting of pair : 
+```cpp
+    vector<pair<int,int>>v;
+
+    v.push_back({6,5});
+    v.push_back({2,3});
+    v.push_back({4,5});
+    v.push_back({6,1});
+    v.push_back({1,9});
+
+    cout << "Sort in ascending order : " << endl;
+    //Sort in ascending order : 
+    sort(v.begin(),v.end());
+
+    for(auto u:v)cout << u.first << " " << u.second << endl;
+
+    cout << "Sort in descending order : " << endl;
+    //Sort in descending order : 
+    sort(v.rbegin(),v.rend());
+
+    for(auto u:v)cout << u.first << " " << u.second << endl;
+```
+
+### Array of Pair : 
+
+```cpp
+    pair<int,int>ap[] = {{6,5},{2,3},{4,5},{6,1},{1,9}};
+    
+    sort(ap,ap+5);
+    
+    for(auto u:ap) cout << u.first << " " << u.second << endl;
+```
+
+### Sorting Different type of pair : 
+```cpp
+    vector<pair<string,int>>v;
+
+    v.push_back({"Hridoy",21});
+    v.push_back({"Nova",6});
+    v.push_back({"Rupa",95});
+    v.push_back({"Hridoy",3});
+    v.push_back({"Nova",6});
+
+    sort(v.begin(),v.end());
+
+    for(auto u:v) cout << u.first << " " << u.second << endl;
+    /*
+    Hridoy 3
+    Hridoy 21
+    Nova 6
+    Nova 6
+    Rupa 95
+    */
+
+```
+
+
+### Finding Unique Pair : 
+
+```cpp
+    vector<pair<string,int>>v;
+
+    v.push_back({"Hridoy",21});
+    v.push_back({"Hridoy",21});
+    v.push_back({"Nova",6});
+    v.push_back({"Rupa",95});
+    v.push_back({"Rupa",95});
+    v.push_back({"Hridoy",3});
+    v.push_back({"Hridoy",3});
+    v.push_back({"Nova",6});
+
+    sort(v.begin(),v.end());
+
+    int size = unique(v.begin(),v.end())-v.begin();
+
+    for(int i = 0; i < size; i++) cout << v[i].first << " " << v[i].second << endl;
+    
+    /*
+    Hridoy 3
+    Hridoy 21
+    Nova 6
+    Rupa 95
+    */
+```
+
+
+### Taking user input in Pair : 
+
+```cpp
+    pair<int,int>p;
+    cin >> p.first >> p.second;
+    cout << p.first << " " << p.second << endl;
+```
+
+
+### Custom sort of pair using Comparator : 
+//ট্রিক্সঃ যেটা অন্যভাবে দরকার সেটা ইনপুট নেবার সময় (-) দ্বারা গুন করে নিব।
+```cpp
+bool cmp(const pair<int,int>&p1, const pair<int,int>&p2){
+    if(p1.first>p2.first) return 1;
+    else if(p1.first==p2.first) return p1.second<p2.second;
+    else return 0;
+}
+
+int main(){
+    optimize();
+
+    vector<pair<int,int>>v;
+    v={{4,143},{3,120},{4,500},{1,20}};
+
+    sort(v.begin(),v.end(),cmp);
+
+    for(auto u:v) cout << u.first << " " << u.second << endl;
+    /*
+    4 143
+    4 500
+    3 120
+    1 20
+    */
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
