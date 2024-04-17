@@ -318,6 +318,380 @@ Example :
     cout << *min_element(v.begin(), v.end()) << endl;//1
 ```
 
+## String : 
+```cpp
+    string s;
+    s = s + 'a';//a
+    s = s + 'b';//ab
+    s += 'c';//abc
+
+    cout << s << endl;
+
+    //Initialization : 
+    string name = "Hridoy";
+    name += ' ';
+    name += 'C';
+    cout << name << endl;
+
+    //Size : 
+    cout << name.size() << endl;
+
+    //Accessing :
+    cout << name[0] << " " << name[1]<< " " << name[2] << endl;
+
+    name[0] = 'R';
+    cout << name << endl;
+
+    //Concatinating : 
+    string f = "Sohanur",l = "Rahman";
+    char m = ' ';
+
+    string fullName = f+m+l;
+    cout << fullName << endl;
+
+    //in same string : 
+    f+=m;
+    f+=l;
+    cout << f << endl;
+```
+
+```cpp
+    //clear():
+    string s1 = "Sohanur";
+    cout << s1 <<endl;
+    s1.clear();
+    cout << s1 << endl;
+
+    //Empty():
+    cout << s1.empty() << endl;
+
+    s1 = "Rahman";
+
+    //Copying :
+    string s2 = "Hridoy";
+    s1 = s2;
+    cout << s1 << endl;
+
+    cout << s1.empty() << endl;
+```
+
+
+### স্ট্রিং প্রিন্টিং ঃ 
+```cpp
+    string name = "Muhammad Sohanur Rahman";
+    string::iterator it;
+    for(it = name.begin(); it != name.end(); it++){
+        cout << *it << " ";
+    }cout << endl;
+    //M u h a m m a d   S o h a n u r   R a h m a n 
+
+    //এটা ইউজ করব ঃ 
+    for(auto u:name){
+        cout << u;
+    }cout << endl;
+    //Muhammad Sohanur Rahman
+```
+### String Compare and Reverse : 
+```cpp
+    //Compare two string : 
+    string s1 = "Muhammad", s2 = "muhammad";
+
+    //O(N)
+    if(s1==s2) cout << "Equal" << endl;
+    else cout << "Not equal" << endl;
+
+    //Reverse : O(N)
+    string s = "Hridoy";
+    reverse(s.begin(),s.end());
+    cout << s << endl;
+```
+
+### Palindrome : 
+```cpp
+    string s = "aabAa";
+    string tmp = s;
+
+    reverse(tmp.begin(),tmp.end());
+    
+    if(s == tmp) cout << "Palindrome\n";
+    else cout << "Not Palindrome\n";
+
+    //Not Palindrome
+```
+
+### স্টিং ইউজার ইনপুট ঃ 
+```cpp
+//User input : 
+    string s;
+    cin >> s;
+```
+
+### cin and cout কে optimize করার জন্যে এটা ইউজ করবঃ 
+```cpp
+ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+```
+### endl ইউজ করব না এটা করে তাই স্লো:
+```cpp
+#define endl '\n'
+```
+কিন্তু ইন্টারেক্টিভ প্রব্লেমের সময় endl ইউজ করব।
+
+
+### স্পেসসহ ইনপুট নিব যেভাবে ঃ 
+```cpp
+    string s;
+    //এখানে স্পেস থাকলে স্পেসের পরের গুলা নিবে নাহ।
+    // cin >> s;//Hridoy king
+    // cout << s << endl;//Hridoy
+
+    //Getting full line input : 
+    getline(cin, s);
+    cout << s << endl;
+```
+
+
+
+
+### Testcase আকারে ইনপুট নিতে cin.ignore() use করব ঃ 
+```cpp
+//এখানে যদি cin.tie(0);cout.tie(0); ইউজ না করি একটা একটা ক্করে ইনপুট হবে আর প্রিন্ট হবে আর দিলে আগে সব ইনপুট নেওয়া হবে সবশেষে প্রিন্ট হবে।
+    int t;
+    cin >> t;
+    for(int i = 1; i <= t; i++){
+        string s;
+        
+        //cin.ignore();
+        char c;
+        cin >> c;
+        getline(cin,s);
+        s+=c;
+        cout << "Case " << i << " " << s << endl;
+    }
+```
+
+### String Sorting, Unique(Remove Duplicates) : 
+```cpp
+    //String Sorting : 
+    string s = "adcbaBACA";
+    sort(s.begin(),s.end());
+    cout << s << endl;//AABCaabcd
+
+    //String Decending Sorting :
+    sort(s.rbegin(),s.rend());
+    cout << s << endl;//dcbaaCBAA
+
+    //Unique string : 
+    sort(s.begin(),s.end());
+    int size = unique(s.begin(),s.end())-s.begin();
+    cout << "No. of unique elemets is : " << size << endl;
+    for (int i = 0; i < size; i++)
+    {
+        cout << s[i];
+    }cout << endl;
+
+    //No. of unique elemets is : 7
+    //ABCabcd
+```
+
+### max and min Element in lexicographical order and Erase in string : 
+```cpp
+    string s = "deacbAAA";
+
+    cout << *max_element(s.begin(),s.end()) << endl;//e
+    cout << *min_element(s.begin(),s.end()) << endl;//A
+
+    s.erase(s.begin());
+    cout << s << endl;//eacbAAA
+
+    //Erase from back : 
+    s.erase(s.end()-1);
+    cout << s << endl;//eacbAA
+
+    //Erase from back : 
+    s.pop_back();
+
+    //See last element:
+    s.back();
+
+```
+
+### Vector of String Sorting : 
+```cpp
+    vector<string>v;
+    v.push_back("Sohanur");
+    v.push_back("Rahman");
+    v.push_back("Hridoy");
+    v.push_back("Hridu");
+    v.push_back("Hrido");
+    v.push_back("Tanha");
+    v.push_back("Tasin");
+    v.push_back("Rupa");
+    v.push_back("Tobib");
+    v.push_back("Sultana");
+    v.push_back("nova");
+    v.push_back("nita");
+    v.push_back("Rafi");
+
+    sort(v.begin(),v.end());
+
+    for(auto u:v){
+        cout << u << endl;
+    }
+
+    //Prefix:Samne theke jekono length pojonto nia...
+    //Suffix : Pison theke jekono length pojonto nia...
+    //Substring : String er jekono continuous part nia ar gap thakbe nah ...
+    //Subsequece : String er gap thakle ar continuous thakle 
+
+```
+
+### How to delete specific element in String : 
+```cpp
+    string s = "AAHAAARAAAIAAADAAOAAYAA";
+    s.erase(remove(s.begin(),s.end(),'A'),s.end());
+    cout << s <<endl;//HRIDOY
+```
+
+### Calculate Unique Strings : 
+```cpp
+    vector<string>v;
+    v.push_back("Sohanur");
+    v.push_back("Sohanur");
+    v.push_back("Sohanur");
+    v.push_back("Rupa");
+    v.push_back("Rupa");
+    v.push_back("Rupa");
+    v.push_back("Tanha"); 
+    v.push_back("Tanha"); 
+    v.push_back("Tanha"); 
+
+    //sort first:
+    sort(v.begin(),v.end());
+    //calculate no of unique strings:
+    int size = unique(v.begin(),v.end())-v.begin();
+
+    for(int i = 0; i < size; i++) cout << v[i] << endl; 
+
+// Rupa
+// Sohanur
+// Tanha
+```
+
+### Integer to String Conversion : 
+```cpp
+    int a = 123;
+    string s = to_string(a);
+    cout << s << endl;
+    s[0]=2;//using this I got emojis...
+    cout << s << endl;
+    s[0]='2';
+    cout << s << endl;
+    //123
+    //☻23
+    //223
+```
+
+### String to Integer Conversion : 
+
+```cpp
+    string s = "222";
+
+    int a = stoi(s);
+    cout << a << endl;//222
+    a++;
+    cout << a << endl;//223
+```
+
+
+### Checking a char is lower or upper : 
+```cpp
+    char c = 'A';
+    bool f1 = isupper(c);
+    cout << f1 << endl;//1
+    char ch = 'a';
+    bool f2 = islower(ch);
+    cout << f2 << endl;//1
+    //Checking space or not : 
+    char cs = ' ';
+    bool f3 = isspace(cs);
+    cout << f3 << endl;//
+```
+### Converting Uppercase char to lowercase:
+```cpp
+    char ch = 'v';
+    ch = toupper (ch);
+    cout << ch << endl;//V
+    ch = tolower(ch);
+    cout << ch << endl;//v
+```
+### Conversion full string of upper to lower and vice-versa:
+```cpp
+    string s;
+    cin >> s;
+
+    transform(s.begin(),s.end(),s.begin(),::tolower);
+```
+
+
+### Copy a specified substring : 
+```cpp
+    string s = "Sohanur ";
+    string t = "Optimistic wise innocent";
+    copy(t.begin()+17,t.begin()+25,back_inserter(s));
+    cout << s << endl;
+```
+
+### Check a substring present or not : 
+```cpp
+    string s = "Hridoy";
+    if(s.find("doy")!=-1)cout << "Substring" << endl;
+    else cout << "Not Substring" << endl;
+    //Substring
+```
+
+
+### Find Next Greater Permutaion in string returns 1 if greater possible return 0 otherwise but cyclicly change the string to next permutaion : 
+```cpp
+        string s;
+        cin >> s;
+        bool haveNextGreaterPermutaion = next_permutation(s.begin(),s.end());
+        if(haveNextGreaterPermutaion)
+            cout << s << endl;
+        else    
+            cout << "no answer" << endl;
+```
+
+### Finding all Permutations : 
+```cpp
+    string s = "ABC";
+    int cnt = 0;
+    do
+    {
+        cout << s << endl;
+        cnt++;
+    } while (next_permutation(s.begin(),s.end()));
+    cout << "No of Permutaion is " << cnt << endl;
+
+/*ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+No of Permutaion is 6*/
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
