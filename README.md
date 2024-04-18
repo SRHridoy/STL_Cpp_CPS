@@ -681,6 +681,52 @@ CBA
 No of Permutaion is 6*/
 ```
 
+
+### Substring in String : 
+```cpp
+    string s = "Hridoy007King";
+    string subS = s.substr(6,3);
+    cout << subS << endl;//007
+```
+
+### Generating all substring from a string :
+
+```cpp
+void genSubStr(string s, int n){
+    for(int i = 0;i < n; i++){
+        for(int j = 1; j <= n-i; j++){
+            cout << s.substr(i,j) << endl;
+        }
+
+    }
+
+    /*
+        Hridoy
+        H
+        Hr
+        Hri
+        Hrid
+        Hrido
+        Hridoy
+        r
+        ri
+        rid
+        rido
+        ridoy
+        i
+        id
+        ido
+        idoy
+        d
+        do
+        doy
+        o
+        oy
+        y
+    */
+}
+```
+
 ## Pair : 
 
 ```cpp
