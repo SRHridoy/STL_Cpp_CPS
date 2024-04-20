@@ -936,6 +936,277 @@ int main(){
 
 
 
+## Set : 
+```cpp
+    set<int> s = {1, 1, 3, 3, 2, 2};
+
+    cout << s.size() << endl;
+    for(auto u:s) cout << u << " ";
+    cout << endl;
+
+    //print using iterator : 
+    set<int>::iterator it;
+    for(it = s.begin();it!=s.end();it++) cout << *it << " ";
+    cout << endl;
+    //1
+    //2
+    //3
+
+    //clear() : 
+    s.clear();
+    //empty();
+    cout << s.empty() << endl;//1
+
+    //taking data : 
+    s.insert(22);//log2(n)
+    s.insert(22);
+    s.insert(3);
+    s.insert(3);
+
+    cout << s.size() << endl;
+    for(auto u:s) cout << u << " ";
+    cout << endl;
+    //3
+    //22
+
+    // Present or not using count : log2(n)
+    cout << s.count(2) << endl;//0
+    cout << s.count(3) << endl;//1
+
+    //first element : 
+    cout << *s.begin() << endl;//3 
+
+    //cout < *(s.begin()+1) << endl; impossible
+
+
+    //Last element : 
+    //cout << *(s.end()-1)<< endl; //impossible
+    cout << *(--s.end()) << endl;//22 works...
+    cout << *(s.rbegin()) << endl;//22
+
+
+    //Erase any element : 
+    s.erase(22);
+    cout << s.size() << endl;//1
+    for(auto u:s) cout << u << " ";//3
+    cout << endl;
+
+    s.insert(1);
+    s.insert(4);
+    s.insert(5);
+    s.insert(8);
+
+    //Erase 1st element:
+    s.erase(s.begin());
+    cout << s.size() << endl;
+    for(auto u : s) cout << u << " ";
+    cout << endl;
+    //3 4 5 8
+
+    //Erase Last element : 
+    //s.erase(s.rbegin()); doesn't work
+    s.erase(--s.end());
+    for(auto u : s) cout << u << " ";
+    cout << endl;
+    //3 4 5
+
+```
+
+
+### set of Strings :
+
+```cpp
+    set<string>s;
+    s.insert("Sohanur");
+    s.insert("Sultana");
+    s.insert("Rafiq");
+    s.insert("Rupa");
+    s.insert("Nova");
+    s.insert("Tanha");
+    s.insert("Tasin");
+    s.insert("Sohanur");
+    s.insert("Sultana");
+    s.insert("Rafiq");
+    s.insert("Rupa");
+    s.insert("Nova");
+    s.insert("Tanha");
+    s.insert("Tasin");
+
+    cout << s.size() << endl;
+    for(auto u : s) cout << u << endl;
+
+    /*
+            7
+        Nova
+        Rafiq
+        Rupa
+        Sohanur
+        Sultana
+        Tanha
+        Tasin
+    */
+```
+
+### Set of Pairs :
+
+```cpp
+    set<pair<int,int>>s;
+
+    s.insert({2,3});
+    s.insert({4,1});
+    s.insert({4,1});
+    s.insert({2,1});
+    s.insert({4,3});
+    s.insert({5,1});
+    s.insert({5,1});
+    s.insert({5,4});
+
+    cout << s.size() << endl;
+    for(auto u:s)cout << u.first << " " << u.second << endl;
+
+    /*
+        6
+        2 1
+        2 3
+        4 1
+        4 3
+        5 1
+        5 4
+    */
+```
+
+
+### Set in decreasing order using comparator : 
+
+```cpp
+    set<int,greater<int>>s;
+    s.insert(2);
+    s.insert(3);
+    s.insert(1);
+    s.insert(5);
+    s.insert(8);
+
+    cout << s.size() << endl;
+    for(auto u:s) cout << u << " ";
+    cout << endl;
+
+    //5
+    //8 5 3 2 1 
+
+
+    set<string,greater<string>>ss;
+    ss.insert("Sohanur");
+    ss.insert("Nova");
+    ss.insert("Hridoy");
+    ss.insert("Hridoy");
+    ss.insert("Rupa");
+    ss.insert("Tanha");
+
+    for(auto u:ss) cout << u << endl;
+    /*
+    Tanha
+    Sohanur
+    Rupa
+    Nova
+    Hridoy
+    */
+
+
+    set<pair<int,int>,greater<pair<int,int>>>spg;
+    spg.insert({1,2});
+    spg.insert({2,3});
+    spg.insert({4,2});
+    for(auto u : spg) cout << u.first << " " << u.second << endl;
+    /*
+    4 2
+    2 3
+    1 2
+    */
+```
+
+### Unordered_set : 
+```cpp
+    //ইউনিক করে কিন্তূ সর্ট করে নাঃ
+    unordered_set<int>s;
+    s.insert(3);
+    s.insert(3);
+    s.insert(1);
+    s.insert(2);
+    //insert,delete avg case e O(1) and worst case O(n)...
+    for(auto u:s)cout << u << " ";
+    cout << endl;
+    //2 1 3
+```
+
+### Multiset : 
+
+```cpp
+    //Multi-set ---> unique thake nah ... but sorted thake....All operations log2(n)
+    multiset<int>s;
+    s.insert(1);
+    s.insert(1);
+    s.insert(2);
+    s.insert(3);
+    s.insert(1);
+    s.insert(4);
+    s.insert(7);
+    s.insert(9);
+    s.insert(4);
+    s.insert(3);
+
+    cout << s.size() << endl;
+    for(auto u:s) cout << u << " ";
+    cout << endl;
+    /*
+    10
+    1 1 1 2 3 3 4 4 7 9
+    */
+   //Occurance of 1 : 
+   cout << s.count(1) << endl;//3
+   //Erase : it deletes all occurances : log2(n)
+   s.erase(1);
+   for(auto u:s) cout << u << " ";
+   cout << endl;
+   //2 3 3 4 4 7 9
+
+   //Erase only one occurace : log2(n)
+   auto it = s.find(3);
+   s.erase(it);
+   for(auto u:s) cout << u << " ";
+   cout << endl;
+   //2 3 4 4 7 9
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
