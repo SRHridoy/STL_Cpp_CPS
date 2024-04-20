@@ -726,6 +726,25 @@ void genSubStr(string s, int n){
     */
 }
 ```
+### Split a String : 
+```cpp
+    string s = "Hello boys, I am doing cp!";
+    vector<string>v;
+    stringstream ss(s);
+    string tmp;
+    while(getline(ss,tmp,' ')) v.push_back(tmp);
+
+    for(auto u:v)cout << u << endl;
+    /*
+    Hello
+    boys,
+    I
+    am
+    doing
+    cp!
+    */
+```
+
 
 ## Pair : 
 
@@ -894,6 +913,37 @@ int main(){
     */
 }
 ```
+## Map : 
+
+### Finding frequencies using map : 
+```cpp
+    vector<int>v={1,1,2,1,2,2,3,3,4,4,5,1,3,2};
+    map<int,int>mp;
+    for(auto u:v) mp[u]++;
+
+    for(auto u:mp){
+        cout << u.first << " " << u.second << endl;
+    }
+    /*
+    1 4
+    2 4
+    3 3
+    4 2
+    5 1
+    */
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
