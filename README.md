@@ -1177,7 +1177,24 @@ int main(){
    //2 3 4 4 7 9
 ```
 
+## Stack:
 
+```cpp
+    stack<int>st;
+    st.push(1);
+    st.push(2);
+    st.push(5);
+    st.push(2);
+    cout << st.size() << endl;
+
+    while(!st.empty()){
+        cout << st.top() << " ";
+        st.pop();
+    }
+
+    //4
+    //2 5 2 1 
+```
 
 
 
