@@ -1196,6 +1196,25 @@ int main(){
     //2 5 2 1 
 ```
 
+> স্ট্যাক বা কিউতে ইটারেটর, ফর ইচ লুপ, যেকোন র‍্যান্ডম এলিমেন্ট এক্সেস করা যায় নাহ...
+
+## Queue : 
+```cpp
+    queue<int> q;
+
+    q.push(1);
+    q.push(3);
+    q.push(2);
+    q.push(12);
+    q.push(5);
+
+    cout << q.size() << endl;//5
+    while(!q.empty()){
+        cout << q.front() << " ";
+        q.pop();
+    }cout << endl;
+    //1 3 2 12 5 
+```
 
 
 
