@@ -1216,7 +1216,49 @@ int main(){
     //1 3 2 12 5 
 ```
 
+## Deque:
+```cpp
+    deque<int>dq;
+    dq.push_front(2);
+    dq.push_front(1);
+    dq.push_front(5);
+    dq.push_back(4);
+    dq.push_back(8);
+    dq.push_back(7);
 
+    cout << dq.size() << endl;//6
+    cout << dq.front() << " " << dq.back()  << endl;//5 7
+    dq.pop_front();
+    cout << dq.front() << " " << dq.back() << endl;//1 7
+    dq.pop_back();
+    cout << dq.front() << " " << dq.back() << endl;//1 8
+```
+
+
+## Priority Queue : 
+```cpp
+    //Big value comes first and simillar to multiset and O(log2(n)) operations and used in various imp places..
+    priority_queue<int>q;
+
+    q.push(1);
+    q.push(2);
+    q.push(5);
+    q.push(1);
+    q.push(3);
+
+    cout << q.size() << endl;//5
+
+    while (!q.empty())
+    {
+        cout << q.top() << " ";
+        q.pop();
+    }//5 3 2 1 1 
+
+```
+using comparator in pq:
+```cpp
+    priority_queue<int,vector<int>,greater<int>>p;
+```
 
 
 
